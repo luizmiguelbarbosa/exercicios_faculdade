@@ -13,11 +13,63 @@ int main()
     //Programa
     
     //entrada para o dia
-    scanf("%d,%d,%d", dia, mes, ano); //aqui é a entrada dos dados para as variaveis dia, mes e ano, respectivamente
+    scanf("%d,%d,%d", &dia, &mes, &ano); //aqui é a entrada dos dados para as variaveis dia, mes e ano, respectivamente
 
-    if (mes == 2 && 1 <= dia <= 28 && ano%4==0 && ano%100 == 0) { //se o mes for fevereiro, o dia for de 1 até 28 e o ano for divisivel por 4 ao mesmo tempo que é divisivel por 100 (ano bissexto), a data é válida
-        printf("Válida");
+    //vou criar uma estrutura de condicionais para o ano bissexto
+    if (ano%4==0 && ano%100==0);// se o ano for bissexto (for divisivel por 4 ao mesmo tempo que é divisivel por 100)
+    {
+        //Fevereiro
+        if(mes==2 && 1<=dia<=29)
+        {
+            printf("valida\n");
+        }
+
+        // Meses que vão até o dia 31
+        else if (mes== 1|| mes == 3 ||mes==5 ||mes== 7 ||mes==8 ||mes==10 ||mes==12 && 1<=dia<=31)
+        {
+            printf("valida\n");
+        }
+
+        // Meses que vão até o dia 30
+        else if (mes==4||mes==6||mes==9||mes==11 && 1<=dia<=30)
+        {
+            printf("valida\n");
+        }
+
+        // caso nada disso tenha sido satisfeito, a data é inválida
+        else
+        {
+            printf("invalida\n");
+        }
     }
 
+    // Estrutura condicional para o ano normal (sem ser bissexto)
+    if (ano%4!=0 || ano%100==0 && ano%400 !=0 ) // ano normal (não é bissexto)
+    {
+        //Fevereiro
+        if (mes==2 && 1<=dia<=28)
+        {
+            printf("valida\n");
+        }
+
+        // Meses que vão até o dia 31
+        else if (mes== 1|| mes == 3 ||mes==5 ||mes== 7 ||mes==8 ||mes==10 ||mes==12 && 1<=dia<=31)
+        {
+            printf("valida\n");
+        }
+
+        // Meses que vão até o dia 30
+        else if (mes==4||mes==6||mes==9||mes==11 && 1<=dia<=30)
+        {
+            printf("valida\n");
+        }
+
+        // caso nada disso tenha sido satisfeito, a data é inválida
+        else
+        {
+            printf("invalida\n");
+        }
+    }
+    
     return 0; 
 }
